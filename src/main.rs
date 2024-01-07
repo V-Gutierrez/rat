@@ -1,3 +1,5 @@
+mod args_parser;
+
 fn main() {
-    println!("Hello, world!");
+    println!("PATHS: {:?}", args_parser::fetch());
 }
