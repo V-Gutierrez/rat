@@ -1,8 +1,12 @@
+use file_reader::FileReader; // Add import statement for FileReader module
 mod args_parser;
 mod file_reader;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let file_paths: Vec<String> = args_parser::fetch();
 
-    file_reader::read_from_paths(file_paths);
+    FileReader {
+        file_paths
+    }.read_from_paths().await;
 }
