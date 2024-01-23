@@ -8,5 +8,7 @@ async fn main() {
 
     FileReader {
         file_paths
-    }.read_from_paths().await;
+    }
+    .read_from_paths()
+    .await;
 }

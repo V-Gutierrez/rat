@@ -34,7 +34,10 @@ impl FileReader {
 
     async fn execute_async_tasks(&self, tasks: Vec<impl Future<Output = JoinHandle<()>>>) {
         for task in tasks {
-            let _: Result<(), JoinError> = task.await.into_future().await;
+            let _: Result<(), JoinError> = task
+                .await
+                .into_future()
+                .await;
         }
     }
 }

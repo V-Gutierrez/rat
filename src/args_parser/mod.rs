@@ -5,11 +5,21 @@ pub fn fetch() -> Vec<String> {
     let mut args_copy: Vec<String> = vec![];
 
     args.for_each(|item: String| { 
-        println!("ARG PASSED: {:?}", item);
         args_copy.push(item)
     });
 
-    println!("Amount of args passed: {}", args_copy.len());
-
     return args_copy
+  }
+
+  #[cfg(test)]
+  mod tests {
+    use super::*;
+
+    #[test]
+    fn test_fetch() {
+      let args: Vec<String> = fetch();
+
+      // Number of default args passed is 1
+      assert_eq!(args.len(), 1);
+    }
   }
